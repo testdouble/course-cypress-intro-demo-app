@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development: &local
+  <<: *default
+  host: <%= ENV.fetch("PGHOST") { "localhost" } %>
+  port: <%= ENV.fetch("PGPORT") { "5432" } %>
+  username: <%= ENV.fetch("POSTGRES_USER") { "postgres" } %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") { "postgres" } %>
+  database: <%= ENV.fetch("POSTGRES_DB") { "yams_api_development" } %>
+
+test:
+  <<: *local
+  database: <%= ENV.fetch("POSTGRES_DB") { "yams_api_test" } %>
+
+production:
+  <<: *default
+  database: yams_api_production
+  username: yams_api
+  password: <%= ENV['YAMS_API_DATABASE_PASSWORD'] %>
