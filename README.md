@@ -60,7 +60,27 @@ you should see the yams app UI.
 
 ## Running Cypress Tests
 
-TBA
+After following along with the course and initializing cypress for the first
+time, use these steps to start up the testing environment and run tests.
+
+1. Start the back-end test environment from your terminal.
+
+    ```
+    $ cd yams_api
+    $ bin/rake cypress:start
+    ```
+1. In a separate terminal window/tab, start the front-end dev server.
+
+    ```
+    $ cd yams
+    $ npm start
+    ```
+1. In a separate terminal window/tab, start cypress.
+    ```
+    $ cd yams
+    $ npx cypress open
+    ```
+1. Once the cypress app opens, click a spec file to run from the list.
 
 ## Code of Conduct
 
