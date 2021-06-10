@@ -63,7 +63,17 @@ you should see the yams app UI.
 After following along with the course and initializing cypress for the first
 time, use these steps to start up the testing environment and run tests.
 
-1. Start the back-end test environment from your terminal.
+1. Start the back-end test environment from your terminal with Docker or Ruby
+   depending on how you previously set up the back-end.
+
+    #### Docker
+
+    ```
+    $ cd yams_api
+    $ docker compose -f docker-compose.cypress.yml up
+    ```
+
+    #### Ruby
 
     ```
     $ cd yams_api
