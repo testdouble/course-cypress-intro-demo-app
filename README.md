@@ -56,7 +56,9 @@ $ npm start
 ```
 
 Your default browser should open a new window at `http://localhost:3000`, and
-you should see the yams app UI.
+you should see the yams app UI. It should look something like this:
+
+<img width="1525" alt="Screen Shot 2021-06-09 at 1 48 42 PM" src="https://user-images.githubusercontent.com/195580/121445995-4fd57580-c92e-11eb-9d13-4155aeb23b96.png">
 
 ## Running Cypress Tests
 
