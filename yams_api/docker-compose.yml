@@ -3,17 +3,20 @@ services:
   db:
     image: postgres:13.3
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - .:/app:cached
+      - db-data:/var/lib/postgresql/data:cached
     env_file: .env
     ports:
       - ${PGPORT:-5432}:${PGPORT:-5432}
+
   web:
     build:
       context: .
       dockerfile: Dockerfile
     command: bash -c "rm -f tmp/pids/server.pid && bin/rails s -b 0.0.0.0"
     volumes:
-      - .:/app
+      - .:/app:cached
+      - bundle-cache:/usr/local/bundle:cached
     ports:
       - ${PORT:-3001}:${PORT:-3001}
     depends_on:
@@ -22,3 +25,7 @@ services:
     environment:
       - PGHOST=db
       - RAILS_ENV=${RAILS_ENV:-development}
+
+volumes:
+  db-data: null
+  bundle-cache: null
