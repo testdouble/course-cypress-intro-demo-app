@@ -55,7 +55,7 @@ function Task({ task, index }) {
 
 function Column({ status, title, tasks }) {
   return (
-    <Grid item xs>
+    <Grid item xs id={`column-${status}`}>
       <Box mb={2}>
         <Typography variant="h6" component="h2" gutterBottom>
           {title}
