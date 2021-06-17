@@ -30,4 +30,27 @@ describe('Tasks', function () {
     cy.contains('Created task!')
     cy.get('#column-in_progress').contains(title)
   })
+
+  it('updates a task', function () {
+    cy.visit('http://localhost:3000')
+
+    // Create task
+    const title = `New Task-${Date.now()}`
+    cy.contains('Add Task').click()
+    cy.get('input[name="title"]').type(title)
+    cy.get('textarea[name="description"]').type('Do the thing.')
+    cy.contains('Save').click()
+    cy.contains('Created task!')
+
+    // Update task
+    const newTitle = `Updated Task-${Date.now()}`
+    cy.contains(title).click()
+    cy.get('input[name="title"]')
+      .clear()
+      .type(newTitle)
+    cy.contains('Save').click()
+    cy.contains('Updated task!')
+    cy.contains(newTitle)
+    cy.contains(title).should('not.exist')
+  })
 })
