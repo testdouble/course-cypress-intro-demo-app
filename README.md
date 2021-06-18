@@ -12,7 +12,7 @@ and `yams_api` folders, respectively.
 You can run the [Ruby on Rails](https://rubyonrails.org/) back-end API in one of
 two ways, either directly on your machine or through
 [Docker](https://www.docker.com/). Regardless of your choice, the back-end will
-run at `http://localhost:3001`.
+run at [`http://localhost:3001`](http://localhost:3001).
 
 ### Using Docker (preferred)
 
@@ -55,7 +55,7 @@ $ npm install
 $ npm start
 ```
 
-Your default browser should open a new window at `http://localhost:3000`, and
+Your default browser should open a new window at [`http://localhost:3000`](http://localhost:3000), and
 you should see the yams app UI. It should look something like this:
 
 <img width="1525" alt="Example screenshot of app" src="https://user-images.githubusercontent.com/195580/121445995-4fd57580-c92e-11eb-9d13-4155aeb23b96.png">
