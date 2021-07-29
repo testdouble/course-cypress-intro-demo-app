@@ -1,3 +1,5 @@
+const uniqueTitle = title => `${title}-${Date.now()}`
+
 describe('Tasks', function () {
   it('displays the board', function () {
     cy.visit('http://localhost:3000')
@@ -11,7 +13,7 @@ describe('Tasks', function () {
   it('creates a task', function () {
     cy.visit('http://localhost:3000')
 
-    const title = `New Task-${Date.now()}`
+    const title = uniqueTitle('New Task')
 
     cy.contains('Add Task').click()
 
@@ -35,7 +37,7 @@ describe('Tasks', function () {
     cy.visit('http://localhost:3000')
 
     // Create task
-    const title = `New Task-${Date.now()}`
+    const title = uniqueTitle('New Task')
     cy.contains('Add Task').click()
     cy.get('input[name="title"]').type(title)
     cy.get('textarea[name="description"]').type('Do the thing.')
@@ -43,7 +45,7 @@ describe('Tasks', function () {
     cy.contains('Created task!')
 
     // Update task
-    const newTitle = `Updated Task-${Date.now()}`
+    const newTitle = uniqueTitle('Updated Task')
     cy.contains(title).click()
     cy.get('input[name="title"]')
       .clear()
