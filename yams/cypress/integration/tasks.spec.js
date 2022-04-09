@@ -1,8 +1,11 @@
 const uniqueTitle = title => `${title}-${Date.now()}`
 
 describe('Tasks', function () {
+  beforeEach(function () {
+    cy.visit('/')
+  })
+
   it('displays the board', function () {
-    cy.visit('http://localhost:3000')
     cy.get('h2').contains('Backlog')
     cy.get('h2').contains('In Progress')
     cy.get('h2').contains('PR Review')
@@ -11,8 +14,6 @@ describe('Tasks', function () {
   })
 
   it('creates a task', function () {
-    cy.visit('http://localhost:3000')
-
     const title = uniqueTitle('New Task')
 
     cy.contains('Add Task').click()
@@ -34,8 +35,6 @@ describe('Tasks', function () {
   })
 
   it('updates and moves a task', function () {
-    cy.visit('http://localhost:3000')
-
     // Create task
     const title = uniqueTitle('New Task')
     cy.contains('Add Task').click()
