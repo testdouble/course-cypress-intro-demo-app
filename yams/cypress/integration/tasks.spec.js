@@ -33,7 +33,7 @@ describe('Tasks', function () {
     cy.get('#column-in_progress').contains(title)
   })
 
-  it('updates a task', function () {
+  it('updates and moves a task', function () {
     cy.visit('http://localhost:3000')
 
     // Create task
@@ -50,9 +50,11 @@ describe('Tasks', function () {
     cy.get('input[name="title"]')
       .clear()
       .type(newTitle)
+    cy.get('#mui-component-select-status').click()
+    cy.contains('PR Review').click()
     cy.contains('Save').click()
     cy.contains('Updated task!')
-    cy.contains(newTitle)
+    cy.get('#column-pr_review').contains(newTitle)
     cy.contains(title).should('not.exist')
   })
 })
